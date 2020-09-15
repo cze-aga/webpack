@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "69f5910f7673ef054869";
+/******/ 	var hotCurrentHash = "736bd2a380ad8fbbe30d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -888,7 +888,7 @@ eval("/* WEBPACK VAR INJECTION */(function(module) {__webpack_require__(/*! ./sc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("let login = (username, password) => {\n  if (username !== \"admin\" || password !== \"radical\") {\n    console.log(\"incorrect login\");\n  }\n};\n\nlogin(\"admin\", \"idunno\");\n\n//# sourceURL=webpack:///./src/script1.es6?");
+eval("let login = (username, password) => {\n  if (username !== \"admin\" || password !== \"radical\") {\n    console.log(\"incorrects login\");\n  }\n};\n\nlogin(\"admin\", \"idunno\");\n\n//# sourceURL=webpack:///./src/script1.es6?");
 
 /***/ }),
 
