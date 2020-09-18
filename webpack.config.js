@@ -1,7 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
-
-// var commonsPlugin = new webpack.optimize.CommonsChunkPlugin("shared.js");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+//var commonsPlugin = new webpack.optimize.spli("shared.js");
 
 const optimization = {
   splitChunks: {
@@ -36,9 +36,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "js/[name].js",
+    filename: "[name].js",
     //where the bundle file is going to be served up from on the web server
-    publicPath: "/assets",
+    publicPath: "/assets/",
   },
   module: {
     rules: [
@@ -53,6 +53,68 @@ module.exports = {
         exclude: /node_modules/,
         loader: "babel-loader",
       },
+      {
+        test: /\.css$/,
+        exclude: /node_modues/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          "css-loader",
+          // "autoprefixer-loader",
+        ],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modues/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          // "style-loader",
+          "css-loader",
+          // "autoprefixer-loader",
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modues/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          // "style-loader",
+          "css-loader",
+          // "autoprefixer-loader",
+          "less-loader",
+        ],
+      },
+      {
+        test: /\.jpg$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              esModule: false, // <- here
+              limit: 10,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.ttf$/,
+        exclude: /node_modues/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              esModule: false, // <- here
+              limit: 10000,
+            },
+          },
+        ],
+      },
     ],
   },
   optimization,
@@ -65,5 +127,10 @@ module.exports = {
     writeToDisk: false,
     hot: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+    }),
+  ],
 };

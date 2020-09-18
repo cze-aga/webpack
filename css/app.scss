@@ -1,0 +1,25 @@
+// body {
+//   padding-top: 80px;
+// }
+// $base-color: #c6538c;
+
+// .masthead-brand {
+//   color: $base-color;
+// }
+
+.bg_header_img {
+  background: url("../images/kawaii.jpg"); // 131px 1px no-repeat;
+  height: 250px;
+  width: 250px;
+}
+
+// for specifying fonts
+@font-face {
+  //name ofneew font
+  font-family: "Chicken2";
+  src: url("../fonts/chicken.ttf");
+}
+
+body {
+  font-family: "Chicken2";
+}
